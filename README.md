@@ -1,2 +1,2 @@
 # InstaBot
-Project to practice selenium knowledge
+Project to practice selenium knowledge!
