@@ -1,5 +1,21 @@
 from selenium import webdriver
 from time import sleep
+from selenium.webdriver.firefox.options import Options
+
+# adding options to browser
+opt = Options()
+opt.add_argument("--disable-infobars")
+opt.add_argument("start-maximized")
+opt.add_argument('--no-sandbox')
+
+# To manage permissions uncomment these lines.
+# opt.add_experimental_option("prefs", {
+#                                         "profile.default_content_setting_values.media_stream_mic": 1,
+#                                         "profile.default_content_setting_values.media_stream_camera": 1,
+#                                         "profile.default_content_setting_values.geolocation": 2,
+#                                         "profile.default_content_setting_values.notifications": 2,
+# })
+opt.add_argument("--disable-extensions")
 
 url = 'https://www.instagram.com/'
 
@@ -71,7 +87,7 @@ def like():
             likes.click()
             sleep(2)
 
-with webdriver.Firefox() as browser:
+with webdriver.Firefox(options=opt) as browser:
     browser.implicitly_wait(3)
     browser.get(url)
 
